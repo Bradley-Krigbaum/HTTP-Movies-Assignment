@@ -7,6 +7,8 @@ function Movie({ addToSavedList }) {
   const [movie, setMovie] = useState(null);
   const params = useParams();
 
+  const history = useHistory();
+
   const fetchMovie = (id) => {
     axios
       .get(`http://localhost:5000/api/movies/${id}`)
@@ -20,9 +22,12 @@ function Movie({ addToSavedList }) {
 
   const deleteMovie = () => {
     axios
-      .delete(`http://localhost:5000/api/movies/${movie.id}`)
-      .then(response => console.log("bk: Movie.js: deleteMovie: Deleted Movie Response: ", response))
-      .catch(err => console.log("bk: Movie.js: deleteMovie: Deleted Movie Error: ", err));
+    .delete(`http://localhost:5000/api/movies/${movie.id}`)
+    .then(response => console.log("bk: Movie.js: deleteMovie: Deleted Movie Response: ", response))
+    .catch(err => console.log("bk: Movie.js: deleteMovie: Deleted Movie Error: ", err));
+
+    history.push('/');
+    window.location.reload();
   };
 
   useEffect(() => {
@@ -48,6 +53,7 @@ function Movie({ addToSavedList }) {
           
         <div className="add-movie-button" onClick={deleteMovie}>
           Delete
+
         </div>
       </div>
 
