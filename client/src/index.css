@@ -71,7 +71,20 @@ body {
   background-color: lightskyblue;
 }
 
+.add-movie-button {
+  position: relative;
+  display: flex;
+  padding: 5px 10px;
+  background-color: lightskyblue;
+  width: fit-content;
+}
+
 .movie-warning {
   color: red;
   text-align: center;
+}
+
+.Form {
+  width: 20%;
+  margin: 0 auto;
 }
